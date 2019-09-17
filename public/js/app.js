@@ -73,9 +73,9 @@ const DbCtrl = (function () {
     };
 })();
 
-DbCtrl.patchData({
-    "name": "heyeyeeyeyey"
-}, 2);
+// DbCtrl.patchData({
+//     "name": "heyeyeeyeyey"
+// }, 2);
 //User Controller
 const UserCtrl = (function () {
 

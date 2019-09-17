@@ -21,7 +21,7 @@ p {
 
 /* Utility Classes */
 .text-primary {
-    color: #20c997;
+    color: #007bff;
 }
 
 .l-heading {
@@ -58,7 +58,7 @@ p {
     display: flex;
     position: sticky;
     top: 0;
-    background: lightgreen;
+    background: #20c997;
     color: white;
     justify-content: space-between;
     z-index: 1;
@@ -78,7 +78,7 @@ p {
 }
 
 #navbar ul li a:hover {
-    background: #20c997;
+    background: #007bff;
     border-radius: 5px;
 }
 
@@ -104,20 +104,17 @@ p {
     background-color: rgba(0, 0, 0, 0.4)
 }
 
-
-
-
-
-
-#container {
-    margin: 30px auto;
-    max-width: 400px;
+/* Form */
+#form-container {
+    margin: 2rem auto;
+    max-width: 40rem;
     padding: 20px;
 }
 
 .form-wrap {
     background: #fff;
     padding: 15px 25px;
+    border-radius: 5px;
     color: #333;
 }
 
@@ -126,9 +123,31 @@ p {
     text-align: center;
 }
 
+/* .form-wrap h1 {
+    text-align: center;
+    background: #20a997;
+    padding: 1rem;
+    color: #fff;
+} */
+
+#form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+}
+
+#form .email {
+    grid-column: 1 / span 2;
+}
+
 .form-wrap .form-group {
     margin-top: 15px;
 }
+
+/* .form-wrap .form-group :nth-child(1) {
+    display: block;
+    margin-top: 15px;
+} */
 
 .form-wrap .form-group label {
     display: block;
@@ -142,8 +161,9 @@ p {
     border-radius: 5px;
 }
 
+
 .form-wrap button {
-    display: block;
+    grid-column: 1 / span 2;
     width: 100%;
     padding: 10px;
     margin-top: 20px;
@@ -159,6 +179,12 @@ p {
 .form-wrap .bottom-text {
     font-size: 13px;
     margin-top: 20px;
+}
+
+.form-radio {
+    display: block;
+    position: relative;
+    margin: 0.5rem 0;
 }
 
 footer {
