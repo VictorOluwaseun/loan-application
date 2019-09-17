@@ -2,23 +2,8 @@
 //Database controller
 const DbCtrl = (function () {
     const url = "http://localhost:3000/users/";
-    // jQuery.each(["put", "delete"], function (i, method) {
-    //     jQuery[method] = function (url, data, callback, type) {
-    //         if (jQuery.isFunction(data)) {
-    //             type = type || callback;
-    //             callback = data;
-    //             data = undefined;
-    //         }
 
-    //         return jQuery.ajax({
-    //             url: url,
-    //             type: method,
-    //             dataType: type,
-    //             data: data,
-    //             success: callback
-    //         });
-    //     };
-    // });
+
     //public methods
     return {
         getData: function (callback) {
@@ -69,6 +54,14 @@ const DbCtrl = (function () {
                     console.log(data);
                 }
             }, );
+        },
+        virtuals: function (dateOfApplication) {
+            return {
+                "dateOfApplication": new Date(dateOfApplication),
+                request: "pending",
+                user: "applicant",
+                delete: false
+            };
         }
     };
 })();
@@ -170,7 +163,9 @@ const App = (function (DbCtrl, UserCtrl, UICtrl) {
         const userData = UICtrl.getUserInput();
 
         if (!dbEmail) {
+            Object.assign(userData, DbCtrl.virtuals(Date.now()));
             DbCtrl.postData(userData); //make a post request
+            window.location.replace("http://localhost:3000/confirmation_page.html");
         }
     };
 

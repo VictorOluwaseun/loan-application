@@ -1,29 +1,71 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "email": "adevic4christ@gmail.com",
-      "delete": true
-    },
-    {
-      "id": 2,
-      "name": "heyeyeeyeyey"
-    },
-    {
-      "lastName": "Ajayi",
-      "firstName": "Seun",
-      "email": "seunajayi@gmail.com",
-      "gender": "Male",
-      "password": "ajayi",
-      "password2": "ajayi",
-      "phone": "07031234567",
-      "dob": "1988-03-21",
-      "address": "2, Stadium Road, Araromi Street",
-      "occupation": "SE",
-      "houseRent": "100000",
-      "income": "400000",
-      "amount": "1000000",
-      "id": 3
-    }
-  ]
+ "users": [
+  {
+   "id": 1,
+   "lastName": "Adewumi",
+   "email": "adevic4christ@gmail.com",
+   "password": "vcredit",
+   "delete": true,
+   "user": "admin",
+   "admin": true
+  },
+  {
+   "id": 2,
+   "name": "heyeyeeyeyey"
+  },
+  {
+   "lastName": "Ajayi",
+   "firstName": "Seun",
+   "email": "seunajayi@gmail.com",
+   "gender": "Male",
+   "password": "ajayi",
+   "password2": "ajayi",
+   "phone": "07031234567",
+   "dob": "1988-03-21",
+   "address": "2, Stadium Road, Araromi Street",
+   "occupation": "SE",
+   "houseRent": "100000",
+   "income": "400000",
+   "amount": "1000000",
+   "id": 3
+  },
+  {
+   "lastName": "Ayomide",
+   "firstName": "Toluwani",
+   "email": "toluwaniayomide@gmail.com",
+   "gender": "Female",
+   "password": "toluwani",
+   "password2": "toluwani",
+   "phone": "07012345678",
+   "dob": "1990-05-21",
+   "address": "53, Off Ise Road, Araromi Street, Ikere Ekiti. Ekiti-State, Nigeria.",
+   "occupation": "UI Designer",
+   "houseRent": "100000",
+   "income": "400000",
+   "amount": "100000",
+   "dateOfApplication": "Tue Sep 17 2019 11:51:13 GMT+0100 (West Africa Standard Time)",
+   "request": "pending",
+   "delete": "false",
+   "id": 4
+  },
+  {
+   "lastName": "Oluwaseun",
+   "firstName": "John",
+   "email": "johnoluwaseun@gmail.com",
+   "gender": "Male",
+   "password": "oluwaseun",
+   "password2": "oluwaseun",
+   "phone": "0703214567",
+   "dob": "1980-11-20",
+   "address": "53, Off Ise Road, Araromi Street, Ikere Ekiti. Ekiti-State, Nigeria.",
+   "occupation": "Medical Doctor",
+   "houseRent": "200000",
+   "income": "200000",
+   "amount": "500000",
+   "dateOfApplication": "Tue Sep 17 2019 11:55:28 GMT+0100 (West Africa Standard Time)",
+   "request": "pending",
+   "delete": "false",
+   "id": 5
+  }
+ ]
 }

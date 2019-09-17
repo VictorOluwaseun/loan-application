@@ -1,0 +1,16 @@
+An online loan application form
+ tools ==> HTML, CSS, Javascript, Jquery, JSON server and Git
+
+
+data needed:
+ 1. Aplicant's full name
+ 2. Address
+ 3. Gender
+ 4. Mobile number
+ 5. email 
+ 6. Occupation
+ 7. Date of Birth
+ 8. Date of application
+ 9. Income
+ 10 Amount
+ 
