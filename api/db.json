@@ -2,11 +2,28 @@
   "users": [
     {
       "id": 1,
+      "email": "adevic4christ@gmail.com",
       "delete": true
     },
     {
       "id": 2,
       "name": "heyeyeeyeyey"
+    },
+    {
+      "lastName": "Ajayi",
+      "firstName": "Seun",
+      "email": "seunajayi@gmail.com",
+      "gender": "Male",
+      "password": "ajayi",
+      "password2": "ajayi",
+      "phone": "07031234567",
+      "dob": "1988-03-21",
+      "address": "2, Stadium Road, Araromi Street",
+      "occupation": "SE",
+      "houseRent": "100000",
+      "income": "400000",
+      "amount": "1000000",
+      "id": 3
     }
   ]
 }
