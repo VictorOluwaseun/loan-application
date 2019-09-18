@@ -63,14 +63,29 @@ const virtuals = function (dateOfApplication) {
 
 $(document).ready(checkSessionStorage);
 
+function getAdminData(data) {
+    data.forEach(element => {
+        if (element.user === "admin") {
+            if (element.email !== JSON.parse(sessionStorage.getItem("admin"))) {
+                return false;
+            }
+        }
+    });
+}
 
 
 //check session storage
 function checkSessionStorage() {
-    if (!sessionStorage.getItem("admin")) {
+    if (sessionStorage.getItem("admin")) {
+        if (!getData(getAdminData)) {
+            console.log("invalid log-in");
+            return false;
+        }
+        window.location.replace("http://localhost:3000/adminui.html");
+    } else {
         showUI();
     }
-};
+}
 
 //Ui functions
 function showUI() {
@@ -81,10 +96,10 @@ const logIn = $("#logIn");
 
 
 
-$(document).ready(function () {
-    // Handler for .ready() called.
-    $(logIn).on("click", checkData);
-});
+// $(document).ready(function () {
+// Handler for .ready() called.
+$(logIn).on("click", checkData);
+// });
 
 function checkData(e) {
     e.preventDefault();
@@ -93,7 +108,7 @@ function checkData(e) {
             const element = data[i];
             if (element.user === "admin") {
                 if (element.lastName === $("#lastName").val() && element.email === $("#email").val() && element.password === $("#password").val()) {
-                    sessionStorage.setItem("admin", JSON.stringify([$("#email").val()]));
+                    sessionStorage.setItem("admin", JSON.stringify($("#email").val()));
                     window.location.replace("http://localhost:3000/adminui.html");
                 }
             } else {
