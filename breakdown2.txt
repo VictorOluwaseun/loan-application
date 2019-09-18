@@ -14,14 +14,3 @@ data needed:
  9. Income
  10 Amount
  
-
- loan calculator
-
-pages:
- 1. Home page 
- 2. application page
- 3. sign up page
- 4. sign in page
- 5. user ui
- 6. admin page
- 7. 

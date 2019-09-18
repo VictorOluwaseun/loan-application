@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <title>VCredit</title>
+</head>
+
+<body style="background:#344a72;">
+    <nav id="navbar">
+        <h1 class="logo">
+            <span class="text-primary">
+                V<i class="fas fa-dollar-sign"></i></span>Credit
+        </h1>
+        <ul>
+            <li><a href="http://localhost:3000/index.html">Home</a></li>
+            <li><a href="http://localhost:3000/sign-up.html">Get a loan</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Login </a></li>
+        </ul>
+    </nav>
+
+    <div id="container">
+        <div class="form-wrap" style="display:none;">
+            <h1>Admin login</h1>
+            <form>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" name="lastName" id="lastName" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" />
+                </div>
+                <button type="submit" id="logIn" class="btn">Log in</button>
+            </form>
+
+        </div>
+
+        <script src="./jquery-3.4.1.js"></script>
+        <script src="./js/app-admin-login.js"></script>
+</body>
+
+</html>
