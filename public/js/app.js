@@ -55,10 +55,9 @@ const DbCtrl = (function () {
                 }
             }, );
         },
-        virtuals: function (dateOfApplication) {
+        virtuals: function () {
             return {
-                "dateOfApplication": new Date(dateOfApplication),
-                request: "pending",
+                request: "Pending",
                 user: "applicant",
                 delete: false
             };
@@ -66,76 +65,51 @@ const DbCtrl = (function () {
     };
 })();
 
-// DbCtrl.patchData({
-//     "name": "heyeyeeyeyey"
-// }, 2);
-//User Controller
-const UserCtrl = (function () {
+//UI Selectors
+const getSelectors = {
+    lastName: "#lastName",
+    firstName: "#firstName",
+    email: "#email",
+    gender: "input[name='gender']",
+    password: "#password",
+    password2: "#password2",
+    phone: "#phone",
+    dob: "#dob",
+    address: "#address",
+    occupation: "#occupation",
+    houseRent: "#houseRent",
+    income: "#income",
+    amount: "#amount",
+    submit: "#submit-form"
+};
 
-})();
-
-//UI Controller
-const UICtrl = (function () {
-    // Selectors
-    const UISelectors = {
-        lastName: "#lastName",
-        firstName: "#firstName",
-        email: "#email",
-        gender: "input[name='gender']",
-        password: "#password",
-        password2: "#password2",
-        phone: "phone",
-        dob: "#dob",
-        address: "#address",
-        occupation: "#occupation",
-        houseRent: "houseRent",
-        income: "#income",
-        amount: "#amount",
-        submit: "#submit-form"
-    };
-
-    // console.log($(UISelectors.gender));
-
-
-    // console.log($(lastName).val());
-
-    //public methods
+//field values
+const getUserInput = function () {
     return {
-        getSelectors: function () {
-            return UISelectors;
-        },
-        getUserInput: function () {
-            return {
-                lastName: $(lastName).val(),
-                firstName: $(firstName).val(),
-                email: $(email).val(),
-                gender: $("input[name='gender']:checked").val(),
-                password: $(password).val(),
-                password2: $(password2).val(),
-                phone: $(phone).val(),
-                dob: $(dob).val(),
-                address: $(address).val(),
-                occupation: $(occupation).val(),
-                houseRent: $(houseRent).val(),
-                income: $(income).val(),
-                amount: $(amount).val(),
-            };
-        }
-
+        lastName: $(getSelectors.lastName).val(),
+        firstName: $(getSelectors.firstName).val(),
+        email: $(getSelectors.email).val(),
+        gender: $("input[name='gender']:checked").val(),
+        password: $(getSelectors.password).val(),
+        password2: $(getSelectors.password2).val(),
+        phone: $(getSelectors.phone).val(),
+        dob: $(getSelectors.dob).val(),
+        address: $(getSelectors.address).val(),
+        occupation: $(getSelectors.occupation).val(),
+        houseRent: $(getSelectors.houseRent).val(),
+        income: $(getSelectors.income).val(),
+        loan: $(getSelectors.amount).val(),
     };
-})();
+};
 
-const App = (function (DbCtrl, UserCtrl, UICtrl) {
-    const UISelectors = UICtrl.getSelectors();
+$(document).ready(function () {
+    $(getSelectors.submit).on("click", submitData);
 
-    function loadEventListeners(params) {
-        $(UISelectors.submit).on("click", submitData);
-    }
-
-    const submitData = function (e) {
+    function submitData(e) {
         e.preventDefault();
+
         //User validation: check if all inputs have value
-        const userValidation = UICtrl.getUserInput();
+        const userValidation = getUserInput();
         for (const i in userValidation) { // iterate through object
             if (!userValidation[i] || userValidation[i] === undefined || userValidation[i] === null) {
                 console.log("Enter all fields"); //UI
@@ -148,34 +122,27 @@ const App = (function (DbCtrl, UserCtrl, UICtrl) {
             return false;
         }
 
+        //make email unique
+        const checkMail = function (data) {
+            const currentEmail = getUserInput().email;
+            const dbEmail = data.find(el => el.email === currentEmail);
+            if (dbEmail) {
+                console.log("email already exits");
+                return false;
+            }
+            const userData = getUserInput();
+            userData.loan = [{
+                "amount": getUserInput().loan
+            }];
+            if (!dbEmail) {
+                userData.loan[0].dateOfApplication = new Date(Date.now());
+                Object.assign(userData, DbCtrl.virtuals());
+                DbCtrl.postData(userData); //make a post request
+                window.location.replace("http://localhost:3000/confirmation_page.html");
+            }
+        };
+
+        //
         DbCtrl.getData(checkMail);
-    };
-    //make email unique
-    checkMail = function (data) {
-        const currentEmail = UICtrl.getUserInput().email;
-
-        const dbEmail = data.find(el => el.email === currentEmail);
-        if (dbEmail) {
-            console.log("email already exits");
-            return false;
-        }
-
-        const userData = UICtrl.getUserInput();
-
-        if (!dbEmail) {
-            Object.assign(userData, DbCtrl.virtuals(Date.now()));
-            DbCtrl.postData(userData); //make a post request
-            window.location.replace("http://localhost:3000/confirmation_page.html");
-        }
-    };
-
-    //public methods
-    return {
-        init: function () {
-            console.log("App initialising...");
-            loadEventListeners();
-        }
-    };
-})(DbCtrl, UserCtrl, UICtrl);
-
-App.init();
+    }
+});

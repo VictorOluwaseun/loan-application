@@ -25,28 +25,88 @@
             margin: 0.5rem;
             line-height: 1.2;
         }
+
+        .align-right {
+            float: right !important;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        #admin-dashboard {
+            text-align: center;
+        }
+
+        .total-applicants {}
+
+        ;
     </style>
     <title>VCredit | Financial Organization</title>
 </head>
 
 <body>
-    <nav id="navbar">
-        <h1 class="logo">
-            <span class="text-primary">
-                V<i class="fas fa-dollar-sign"></i></span>Credit
-        </h1>
-        <ul>
-            <li><a href="http://localhost:3000/index.html">Home</a></li>
-            <li><a href="http://localhost:3000/sign-up.html">Get a loan</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Login </a></li>
-        </ul>
+    <nav id="navbar" class="navbar navbar-expand-sm bg-success navbar-dark">
+        <a class="navbar-brand" href="http://localhost:3000/index.html">
+            <!-- <h1 class="logo"> -->
+            <strong>
+                <span class="text-primary">
+                    V<i class="fas fa-dollar-sign"></i></span>Credit
+                <!-- </h1> --></strong>
+        </a>
+        <div class="align-right">
+            <ul class="navbar-nav  justify-content-end nav-tabs">
+                <li class="nav-item"><a class="nav-link" href="http://localhost:3000/index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="http://localhost:3000/sign-up.html">Get a loan</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+            </ul>
+        </div>
+        <div class="clear">
+
+        </div>
     </nav>
+
+    <!-- <div class="container"> -->
+    <!-- <div class="jumbotron bg-primary"> -->
+
+    <div class="jumbotron">
+        <div id="admin-dashboard">
+            <h1 class="text-success">ADMIN DASHBOARD</h1>
+        </div>
+    </div>
+
+    <div style="display:inline-block; border: 2px solid gainsboro; border-radius: 5px;" class="total-applicants">Total
+        Number of Applicants
+        <div style="display:inline-block;" class="total-no-applicants">
+        </div>
+    </div>
+
+
+    <div>
+        Total Number of accepted loan
+    </div>
+
+    <div>
+        Total Number of decline loan
+    </div>
+
+    <div>
+        Total Number of paid loan
+    </div>
+
+    <div>
+        Total Number of unpaid loan
+    </div>
+    <!-- </div> -->
+    <!-- </div> -->
 
     <div id="all-pending-loan" class="container">
 
     </div>
 
+
+
+    <!-- <div class="container"> -->
     <div id="approved">
         <h3>Approved Loan</h3>
         <div id="approved-loan" class="container">
@@ -61,6 +121,7 @@
         <h3>Deleted Loan</h3>
         <div id="deleted-loan" class="container">
         </div>
+    </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -78,35 +139,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div>
-        Total Number of Applicants
-    </div>
-
-    <div>
-        Total Number of accepted loan
-    </div>
-
-    <div>
-        Total Number of decline loan
-    </div>
-
-    <div>
-        Total Number of paid loan
-    </div>
-
-    <div>
-        Total Number of unpaid loan
-    </div> -->

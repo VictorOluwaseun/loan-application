@@ -22,9 +22,13 @@
    "occupation": "Software Engineer",
    "houseRent": "100000",
    "income": "300000",
-   "amount": "1000000",
-   "dateOfApplication": "Tue Sep 17 2019 23:24:52 GMT+0100 (West Africa Standard Time)",
-   "request": "Declined",
+   "loan": [
+    {
+     "amount": "1000000",
+     "dateOfApplication": "Tue Sep 17 2019 23:24:52 GMT+0100 (West Africa Standard Time)"
+    }
+   ],
+   "status": "Declined",
    "user": "applicant",
    "delete": false,
    "id": 2,
@@ -43,9 +47,13 @@
    "occupation": "UX/UI Designer",
    "houseRent": "100000",
    "income": "300000",
-   "amount": "1000000",
-   "dateOfApplication": "Tue Sep 17 2019 23:27:43 GMT+0100 (West Africa Standard Time)",
-   "request": "Declined",
+   "loan": [
+    {
+     "amount": "1000000",
+     "dateOfApplication": "Tue Sep 17 2019 23:27:43 GMT+0100 (West Africa Standard Time)"
+    }
+   ],
+   "status": "Declined",
    "user": "applicant",
    "delete": false,
    "id": 3
@@ -63,9 +71,13 @@
    "occupation": "Computer Scientist",
    "houseRent": "100000",
    "income": "300000",
-   "amount": "1000000",
-   "dateOfApplication": "Wed Sep 18 2019 06:46:33 GMT+0100 (West Africa Standard Time)",
-   "request": "Pending",
+   "loan": [
+    {
+     "amount": "1000000",
+     "dateOfApplication": "Wed Sep 18 2019 06:46:33 GMT+0100 (West Africa Standard Time)"
+    }
+   ],
+   "status": "Pending",
    "user": "applicant",
    "delete": false,
    "id": 4,
@@ -84,9 +96,13 @@
    "occupation": "Banker",
    "houseRent": "70000",
    "income": "350000",
-   "amount": "100000",
-   "dateOfApplication": "Wed Sep 18 2019 07:23:37 GMT+0100 (West Africa Standard Time)",
-   "request": "Pending",
+   "loan": [
+    {
+     "amount": "100000",
+     "dateOfApplication": "Wed Sep 18 2019 07:23:37 GMT+0100 (West Africa Standard Time)"
+    }
+   ],
+   "status": "Pending",
    "user": "applicant",
    "delete": false,
    "id": 5,
@@ -105,9 +121,13 @@
    "occupation": "Software Engineer",
    "houseRent": "100000",
    "income": "300000",
-   "amount": "1000000",
-   "dateOfApplication": "Tue Sep 17 2019 23:24:52 GMT+0100 (West Africa Standard Time)",
-   "request": "Pending",
+   "loan": [
+    {
+     "amount": "1000000",
+     "dateOfApplication": "Tue Sep 17 2019 23:24:52 GMT+0100 (West Africa Standard Time)"
+    }
+   ],
+   "status": "Pending",
    "user": "applicant",
    "delete": true,
    "id": 6,
@@ -126,9 +146,13 @@
    "occupation": "UX/UI Designer",
    "houseRent": "100000",
    "income": "300000",
-   "amount": "1000000",
-   "dateOfApplication": "Tue Sep 17 2019 23:27:43 GMT+0100 (West Africa Standard Time)",
-   "request": "Pending",
+   "loan": [
+    {
+     "amount": "1000000",
+     "dateOfApplication": "Tue Sep 17 2019 23:27:43 GMT+0100 (West Africa Standard Time)"
+    }
+   ],
+   "status": "Pending",
    "user": "applicant",
    "delete": false,
    "id": 7
@@ -146,9 +170,13 @@
    "occupation": "Computer Scientist",
    "houseRent": "100000",
    "income": "300000",
-   "amount": "1000000",
-   "dateOfApplication": "Wed Sep 18 2019 06:46:33 GMT+0100 (West Africa Standard Time)",
-   "request": "Declined",
+   "loan": [
+    {
+     "amount": "1000000",
+     "dateOfApplication": "Wed Sep 18 2019 06:46:33 GMT+0100 (West Africa Standard Time)"
+    }
+   ],
+   "status": "Declined",
    "user": "applicant",
    "delete": false,
    "id": 8,
@@ -167,9 +195,13 @@
    "occupation": "Banker",
    "houseRent": "70000",
    "income": "350000",
-   "amount": "100000",
-   "dateOfApplication": "Wed Sep 18 2019 07:23:37 GMT+0100 (West Africa Standard Time)",
-   "request": "Approved",
+   "loan": [
+    {
+     "amount": "100000",
+     "dateOfApplication": "Wed Sep 18 2019 07:23:37 GMT+0100 (West Africa Standard Time)"
+    }
+   ],
+   "status": "Approved",
    "user": "applicant",
    "delete": false,
    "id": 9,
@@ -188,9 +220,13 @@
    "occupation": "Banker",
    "houseRent": "70000",
    "income": "350000",
-   "amount": "100000",
-   "dateOfApplication": "Wed Sep 18 2019 07:23:37 GMT+0100 (West Africa Standard Time)",
-   "request": "Pending",
+   "loan": [
+    {
+     "amount": "100000",
+     "dateOfApplication": "Wed Sep 18 2019 07:23:37 GMT+0100 (West Africa Standard Time)"
+    }
+   ],
+   "status": "Pending",
    "user": "applicant",
    "delete": false,
    "id": 10,
@@ -209,13 +245,41 @@
    "occupation": "Banker",
    "houseRent": "70000",
    "income": "350000",
-   "amount": "100000",
-   "dateOfApplication": "Wed Sep 18 2019 07:23:37 GMT+0100 (West Africa Standard Time)",
-   "request": "Pending",
+   "loan": [
+    {
+     "amount": "100000",
+     "dateOfApplication": "Wed Sep 18 2019 07:23:37 GMT+0100 (West Africa Standard Time)"
+    }
+   ],
+   "status": "Pending",
    "user": "applicant",
    "delete": false,
    "id": 11,
    "dataOfApproval": "Wed Sep 18 2019 14:12:03 GMT+0100 (West Africa Standard Time)"
+  },
+  {
+   "lastName": "John",
+   "firstName": "Joseph",
+   "email": "1@20@gmail.com",
+   "gender": "Male",
+   "password": "success",
+   "password2": "success",
+   "phone": "07023434567",
+   "dob": "1988-06-21",
+   "address": "Ajay, Lagos",
+   "occupation": "Computer Scientist",
+   "houseRent": "50000",
+   "income": "400000",
+   "loan": [
+    {
+     "amount": "1000000",
+     "dateOfApplication": "Wed Sep 18 2019 18:02:10 GMT+0100 (West Africa Standard Time)"
+    }
+   ],
+   "status": "Pending",
+   "user": "applicant",
+   "delete": "false",
+   "id": 12
   }
  ]
 }
