@@ -61,8 +61,10 @@ $(document).ready(function () {
 	const displayUser = function (users) {
 		//display UI
 		users.forEach(user => {
-			if (user["user"] !== "admin" && user["status"] !== "Approved" && user["status"] !== "Declined" && user["status"] !== "Deleted" && user.delete == false) {
-				output += `
+			if (user["user"] == "applicant") {
+				// if (user.delete == false) {
+				if (user["status"] == "Pending") {
+					output += `
 				<div class = "row">
 				<div class="col-lg-4 col-md-6 mb-4">
             <div class="card" style="min-width:18rem">
@@ -88,13 +90,15 @@ $(document).ready(function () {
 			</div>
 			</div>`;
 
-				$("#all-pending-loan").html(output);
+					$("#all-pending-loan").html(output);
+				}
+				// }
 			}
 		});
 
 	};
-
 	getData(displayUser);
+
 
 	//Approve Loan //pending
 	$("#all-pending-loan").on("click", function (e) {
@@ -104,18 +108,19 @@ $(document).ready(function () {
 			// console.log(e.target);
 			// console.log($(e.target).attr("data-id"));
 			patchData({
-				request: "Approved",
+				status: "Approved",
 				dataOfApproval: new Date(Date.now())
 			}, $(e.target).attr("data-id"));
 			$(e.target).prev().text("Request: Approved");
 			$(e.target).parent().parent().hide();
+			getData(filterAllApprovedLoan);
 			//getOneData(console.log, $(e.target).attr("data-id"));
 		}
 		//To decline
 		if ($(e.target).hasClass("btn-warning")) {
 			let id = $(e.target).attr("data-id");
 			patchData({
-				request: "Declined"
+				status: "Declined"
 			}, id);
 			$(e.target).prev().prev().text("Request: Declined");
 			$(e.target).parent().parent().hide();
@@ -126,13 +131,14 @@ $(document).ready(function () {
 			let id = $(e.target).attr("data-id");
 
 			patchData({
-				delete: true
+				delete: true,
+				status: "deleted"
 			}, id);
 
 			$(e.target).prev().prev().prev().text("Request: Deleted");
-
-			getOneData(console.log, id);
-			$(e.target).parent().parent().hide();
+			$(e.target).prev().prev().hide();
+			$(e.target).prev().hide();
+			$(e.target).parent().parent().css("display", "none");
 		}
 	});
 
@@ -143,8 +149,6 @@ $(document).ready(function () {
 	//Declined Loan
 	getData(filterAllDeclinedLoan);
 
-	//Deleted Loan
-	getData(filterAllDeletedLoan);
 
 	function filterAllApprovedLoan(data) {
 		let uIOutput = "";
@@ -157,8 +161,8 @@ $(document).ready(function () {
             <div class="card" style="min-width:18rem">
 			<p class="card-text alert alert-success role="alert" request-${user.id}">${user.status}</p>
 				<div class="card-body">
-				<p class="card-text">Date of Application: ${user.dateOfApplication}</p>
-                    <p class="card-text">Data of Approval: ${user.dataOfApproval}</p>
+				<p class="card-text">Date of Application: ${new Date(user.dateOfApplication).toLocaleDateString()}</p>
+                    <p class="card-text">Data of Approval: ${new Date(user.dataOfApproval).toLocaleString()}</p>
                     <h4 class="card-title">${user.lastName} ${user.firstName}</h4>
                     <h6 class="card-subtitle mb-2">${user.email}</h6>
                     <p class="card-text">gender: ${user.gender}</p>
@@ -207,52 +211,5 @@ $(document).ready(function () {
 			}
 		}
 		$("#declined-loan").html(uIOutput);
-	}
-
-	function filterAllDeletedLoan(data) {
-		let uIOutput = "";
-		for (let i = 0; i < data.length; i++) {
-			let user = data[i];
-			if (user.delete == true) {
-				uIOutput += `
-				<div class = "row">
-				<div class="col-lg-4 col-md-6 mb-4">
-            <div class="card" style="min-width:18rem">
-                <div class="card-body">
-                    <h4 class="card-title">${user.lastName} ${user.firstName}</h4>
-                    <h6 class="card-subtitle mb-2">${user.email}</h6>
-                    <p class="card-text">gender: ${user.gender}</p>
-                    <p class="card-text">Phone: ${user.phone}</p>
-                    <p class="card-text">Date of Birth: ${user.dob}</p>
-                    <p class="card-text">Address: ${user.address}</p>
-                    <p class="card-text">Occupation: ${user.occupation}</p>
-                    <p class="card-text">House Rent: ${user.houseRent}</p>
-                    <p class="card-text">Income: ${user.income}</p>
-                    <p class="card-text">Request for: ${user.amount}</p>
-                    <p class="card-text">Date of Application: ${user.dateOfApplication}</p>
-                    <p class="card-text request-${user.id}">Request: ${user.status}</p>
-                </div>
-			</div>
-			</div>
-			</div>`;
-			}
-		}
-		$("#deleted-loan").html(uIOutput);
-	}
-
-
-	//Total Number of Applicants
-	getData(totalNumberofApplicants);
-	var count = 0;
-
-	function totalNumberofApplicants(applicants) {
-		for (let i = 0; i < applicants.length; i++) {
-			if (applicants.user !== "admin") {
-				count++;
-			}
-		}
-		console.log(count);
-
-		$(".total-no-applicants").text(count);
 	}
 });

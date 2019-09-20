@@ -80,21 +80,21 @@ $(document).ready(function () {
         //check database
         const checkForEmailAndPassword = function (data) {
             for (let i = 0; i < data.length; i++) {
-                // if (data[i].user !== "admin") {
-                const emailFromDB = data.find(el => el.email === email);
-                if (emailFromDB) {
-                    const dataFromDB = data.find(el => el.password === password);
-                    if (dataFromDB) {
-                        console.log("log in successfully", dataFromDB.email);
-                        sessionStorage.setItem("user", JSON.stringify(dataFromDB.email));
-                        window.location.replace("http://localhost:3000/userui.html");
+                if (data[i].user !== "admin") {
+                    const emailFromDB = data.find(el => el.email === email);
+                    if (emailFromDB) {
+                        const dataFromDB = data.find(el => el.password === password);
+                        if (dataFromDB) {
+                            console.log("log in successfully", dataFromDB.email);
+                            sessionStorage.setItem("user", JSON.stringify(emailFromDB.email));
+                            window.location.replace("http://localhost:3000/userui.html");
+                        } else {
+                            displayAlert("Invalid password", "alert-danger");
+                        }
                     } else {
-                        displayAlert("Invalid password", "alert-danger");
+                        displayAlert("Invalid email", "alert-danger");
                     }
-                } else {
-                    displayAlert("Invalid email", "alert-danger");
                 }
-                // }
             }
         };
         DbCtrl.getData(checkForEmailAndPassword);

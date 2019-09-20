@@ -74,7 +74,8 @@ $(document).ready(function () {
             $(".info-loan-status").text(userData.status).addClass("bg-warning").addClass("text-dark");
         } else if (userData.status == "Pending") {
             $(".info-loan-status").text(userData.status).addClass("bg-secondary").addClass("text-light");
-        } else {
+        } else if (userData.delete == true || userData.status == "delete") {
+            $("#message").text("Your request was deleted!");
             $(".info-loan-status").text(userData.status).addClass("bg-danger").addClass("text-light");
         }
 
@@ -97,11 +98,7 @@ $(document).ready(function () {
 
         $("#details").on("click", function (e) {
             e.preventDefault();
-            $("#details-card").toggle(function () {
-                // if ($("#details-card").show()) {
-                //     $("#details").text("hide");
-                // }
-            });
+            $("#details-card").toggle(function () {});
         });
     }
 

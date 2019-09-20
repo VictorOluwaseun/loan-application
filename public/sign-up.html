@@ -5,29 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css">
     <title>VCredit</title>
 </head>
 
 <body style="background:#344a72;">
-    <nav id="navbar">
-        <h1 class="logo">
-            <span class="text-primary">
-                V<i class="fas fa-dollar-sign"></i></span>Credit
-        </h1>
-        <ul>
-            <li><a href="http://localhost:3000/index.html">Home</a></li>
-            <li><a href="http://localhost:3000/sign-up.html">Get a loan</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Login </a></li>
+    <nav id="navbar" class="navbar navbar-expand-sm bg-success navbar-dark">
+        <a class="navbar-brand" href="http://localhost:3000/index.html">
+
+            <strong>
+                <span class="text-primary">
+                    V<i class="fas fa-dollar-sign"></i></span>Credit
+            </strong>
+        </a>
+        <ul class="navbar-nav  justify-content-end nav-tabs">
+            <li class="nav-item"><a class="nav-link" href="http://localhost:3000/index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="http://localhost:3000/sign-up.html">Get a loan</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="http://localhost:3000/user-login.html">Log in</a></li>
         </ul>
     </nav>
 
     <div id="form-container">
         <div class="form-wrap">
+            <div class="alert"></div>
             <h1>Sign Up</h1>
             <p>It's free and only takes a minute</p>
             <form id="form">
@@ -88,37 +92,15 @@
                     <input type="number" id="income">
                 </div>
                 <div class="form-group">
-                    <select name="" id="amount">
-                        <option value="100000"><span>&#8358;</span>500,000</option>
-                        <option value="200000"><span>&#8358;</span>1000,000</option>
-                        <option value="500000"><span>&#8358;</span>2000,000</option>
-                        <option value="1000000"><span>&#8358;</span>5000,000</option>
+                    <label for="amount">Select Amount</label>
+                    <select name="" id="amount" class="custom-select">
+                        <option value="500000"><span>&#8358;</span>500,000</option>
+                        <option value="100000"><span>&#8358;</span>1000,000</option>
+                        <option value="200000"><span>&#8358;</span>2000,000</option>
+                        <option value="5000000"><span>&#8358;</span>5000,000</option>
                     </select>
                 </div>
-                <div class="form-group">
-
-                </div>
-                <div class="form-group">
-
-                </div>
-                <div class="form-group">
-
-                </div>
-                <div class="form-group">
-
-                </div>
-                <div class="form-group">
-
-                </div>
-                <div class="form-group">
-
-                </div>
-                <div class="form-group">
-
-                </div>
-                <div class="form-group">
-
-                </div>
+                <div class="alert"></div>
                 <button type="submit" class="btn" id="submit-form">Sign Up & Apply</button>
                 <p>Ensure all inputs are correct</p>
                 <p class="bottom-text">
@@ -129,7 +111,7 @@
             </form>
         </div>
         <footer>
-            <p>Already have an account? <a href="#">Login Here</a></p>
+            <p>Already have an account? <a href="http://localhost:3000/user-login.html">Login Here</a></p>
         </footer>
     </div>
 

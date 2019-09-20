@@ -3,7 +3,6 @@
 const DbCtrl = (function () {
     const url = "http://localhost:3000/users/";
 
-
     //public methods
     return {
         getData: function (callback) {
@@ -57,7 +56,7 @@ const DbCtrl = (function () {
         },
         virtuals: function () {
             return {
-                request: "Pending",
+                status: "Pending",
                 user: "applicant",
                 delete: false
             };
@@ -98,7 +97,7 @@ const getUserInput = function () {
         occupation: $(getSelectors.occupation).val(),
         houseRent: $(getSelectors.houseRent).val(),
         income: $(getSelectors.income).val(),
-        loan: $(getSelectors.amount).val(),
+        amount: $(getSelectors.amount).val(),
     };
 };
 
@@ -112,13 +111,13 @@ $(document).ready(function () {
         const userValidation = getUserInput();
         for (const i in userValidation) { // iterate through object
             if (!userValidation[i] || userValidation[i] === undefined || userValidation[i] === null) {
-                console.log("Enter all fields"); //UI
+                displayAlert("Enter all fields", "alert-danger"); //UI
                 return false;
             }
         }
         //password validation
         if (userValidation.password !== userValidation.password2) {
-            console.log("Password not matched!");
+            displayAlert("Password not matched!", "alert-danger");
             return false;
         }
 
@@ -127,22 +126,37 @@ $(document).ready(function () {
             const currentEmail = getUserInput().email;
             const dbEmail = data.find(el => el.email === currentEmail);
             if (dbEmail) {
-                console.log("email already exits");
+                displayAlert("email already exits", "alert-danger");
                 return false;
             }
             const userData = getUserInput();
-            userData.loan = [{
-                "amount": getUserInput().loan
-            }];
             if (!dbEmail) {
-                userData.loan[0].dateOfApplication = new Date(Date.now());
+                userData.dateOfApplication = new Date(Date.now());
                 Object.assign(userData, DbCtrl.virtuals());
                 DbCtrl.postData(userData); //make a post request
                 window.location.replace("http://localhost:3000/confirmation_page.html");
             }
         };
 
-        //
         DbCtrl.getData(checkMail);
+    }
+
+    function displayAlert(message, className) {
+        clearAlert();
+        $(".alert").text(message).addClass(className);
+        setTimeout(() => {
+            clearAlert();
+        }, 2000);
+    }
+
+    function clearAlert() {
+        const currentAlert = $(".alert");
+        if (currentAlert.hasClass("alert-danger")) {
+            currentAlert.removeClass("alert-danger");
+        }
+        if (currentAlert.hasClass("alert-success")) {
+            currentAlert.removeClass("alert-success");
+        }
+        currentAlert.text("");
     }
 });

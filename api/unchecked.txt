@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <style>
+    <!-- <style>
         .container {
             /* display: flex;
             align-content: space-between;
@@ -41,7 +41,7 @@
         .total-applicants {}
 
         ;
-    </style>
+    </style> -->
     <title>VCredit | Financial Organization</title>
 </head>
 
@@ -74,40 +74,60 @@
             <h1 class="text-success">ADMIN DASHBOARD</h1>
         </div>
     </div>
-    <div>
-        Go to <a href="#approved">approved section</a>
-        <a href="#declined">declined section</a>
-    </div>
-    <!-- <div style="display:inline-block; border: 2px solid gainsboro; border-radius: 5px;" class="total-applicants">Total
+
+    <div style="display:inline-block; border: 2px solid gainsboro; border-radius: 5px;" class="total-applicants">Total
         Number of Applicants
         <div style="display:inline-block;" class="total-no-applicants">
         </div>
-    </div> -->
+    </div>
 
-    <!-- </div> -->
-    <!-- </div> -->
+    <h2></h2>
+    <p></p>
+    <div id="all-loan-applicants" class="container table-striped">
+
+    </div>
+
+    <!-- <div>
+        Total Number of accepted loan
+    </div>
+
     <div>
-        <h3 id="pending" class="alert alert-primary" style="text-align: center;">Pending Loan</h3>
+        Total Number of decline loan
     </div>
-    <div id="all-pending-loan" class="container">
 
+    <div>
+        Total Number of paid loan
     </div>
+
+    <div>
+        Total Number of unpaid loan
+    </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+
+    <!-- <div id="all-pending-loan" class="container">
+
+    </div> -->
 
 
 
     <!-- <div class="container"> -->
-    <div id="approved"></div>
-    <h3 class="alert alert-success">Approved Loan</h3>
-    <div id="approved-loan" class="container">
-    </div>
+    <!-- <div id="approved">
+        <h3>Approved Loan</h3>
+        <div id="approved-loan" class="container">
+        </div>
     </div>
     <div id="declined">
-        <h3 class="alert alert-warning">Declined Loan</h3>
+        <h3>Declined Loan</h3>
         <div id="declined-loan" class="container">
         </div>
     </div>
-
+    <div id="deleted">
+        <h3>Deleted Loan</h3>
+        <div id="deleted-loan" class="container">
+        </div>
     </div>
+    </div> -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
